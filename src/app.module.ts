@@ -9,15 +9,13 @@ import { User, UserSchema } from './auth/entities/user.entity';
   imports: [
     ConfigModule.forRoot(),
     
-    MongooseModule.forFeature([
-      { 
-        name: User.name, 
-        schema: UserSchema 
-      }
-    ]),
+    // MongooseModule.forFeature([{ name: Cat.name, schema: CatSchema }]),
+    
 
     MongooseModule.forRoot(process.env.MONGO_URI),
+  
 
+    
     AuthModule,
   ],
   controllers: [],
