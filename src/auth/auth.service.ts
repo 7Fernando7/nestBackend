@@ -9,8 +9,6 @@ import { CreateUserDto, LoginDto, RegisterUserDto, UpdateAuthDto } from './dto';
 import { User } from './entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
 import { LoginResponse } from './interfaces/login-response';
-import { RegisterResponse } from './interfaces/register-response';
-import { RegisterUser } from './entities/register.entity';
 
 @Injectable()
 export class AuthService {
@@ -85,8 +83,8 @@ export class AuthService {
 
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  findAll(): Promise<User[]> {
+    return this.userModel.find();
   }
 
   findOne(id: number) {
