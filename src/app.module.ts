@@ -12,7 +12,10 @@ import { User, UserSchema } from './auth/entities/user.entity';
     // MongooseModule.forFeature([{ name: Cat.name, schema: CatSchema }]),
     
 
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot( process.env.MONGO_URI,
+      {
+        dbName: process.env.MONGO_DB_NAME,
+      }),
   
 
     
